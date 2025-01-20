@@ -9,7 +9,7 @@ function loadContent(url, containerId) {
       return response.text();
     })
     .then(data => {
-      container.innerHTML = data; // Cargar el contenido en el contenedor
+      container.innerHTML = data; // Insertar contenido dinámico
     })
     .catch(error => {
       console.error(error);
@@ -17,20 +17,22 @@ function loadContent(url, containerId) {
     });
 }
 
-// Cargar encabezado, pie de página y contenido inicial al cargar la página
+// Escuchar eventos cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-  loadContent('header.html', 'header-container'); // Cargar header
-  loadContent('footer.html', 'footer-container'); // Cargar footer
-  loadContent('inicio.html', 'main-content'); // Cargar contenido inicial
+  // Cargar encabezado, pie de página y contenido inicial
+  loadContent('header.html', 'header-container');
+  loadContent('footer.html', 'footer-container');
+  loadContent('inicio.html', 'main-content');
 
-  // Capturar clics en enlaces con data-load
+  // Interceptar clics en enlaces con atributo data-load
   document.addEventListener('click', (event) => {
     const target = event.target;
 
-    if (target.tagName === 'A' && target.dataset.load) {
-      event.preventDefault(); // Evitar que el navegador cargue la página completa
-      const url = target.getAttribute('href'); // Obtener la URL
-      loadContent(url, 'main-content'); // Cargar el contenido en el contenedor principal
+    // Verificar si el elemento es un enlace y tiene el atributo data-load
+    if (target.tagName === 'A' && target.hasAttribute('data-load')) {
+      event.preventDefault(); // Prevenir la navegación por defecto
+      const url = target.getAttribute('href'); // Obtener la URL del enlace
+      loadContent(url, 'main-content'); // Cargar contenido dinámicamente
     }
   });
 });

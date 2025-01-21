@@ -10,11 +10,50 @@ function loadContent(url, containerId) {
     })
     .then(data => {
       container.innerHTML = data; // Insertar contenido dinámico
+      if (url === 'contacto.html') { 
+        assignFormValidation(); // Asignar validación si el formulario está cargado
+      }
     })
     .catch(error => {
       console.error(error);
       container.innerHTML = `<p>Error al cargar el contenido.</p>`;
     });
+}
+
+// Función para asignar la validación del formulario
+function assignFormValidation() {
+  const form = document.getElementById("formContacto");
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const mensajeError = document.getElementById("mensajeError");
+
+      if (!nombre) {
+        mensajeError.textContent = "El campo Nombre no puede estar vacío.";
+        mensajeError.style.display = "block";
+        return;
+      }
+
+      if (!email) {
+        mensajeError.textContent = "El campo Correo Electrónico no puede estar vacío.";
+        mensajeError.style.display = "block";
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        mensajeError.textContent = "El Correo Electrónico no tiene un formato válido.";
+        mensajeError.style.display = "block";
+        return;
+      }
+
+      mensajeError.style.display = "none";
+      alert("Formulario enviado con éxito.");
+    });
+  }
 }
 
 // Escuchar eventos cuando el DOM esté cargado
@@ -28,11 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (event) => {
     const target = event.target;
 
-    // Verificar si el elemento es un enlace y tiene el atributo data-load
     if (target.tagName === 'A' && target.hasAttribute('data-load')) {
-      event.preventDefault(); // Prevenir la navegación por defecto
-      const url = target.getAttribute('href'); // Obtener la URL del enlace
-      loadContent(url, 'main-content'); // Cargar contenido dinámicamente
+      event.preventDefault();
+      const url = target.getAttribute('href');
+      loadContent(url, 'main-content');
     }
   });
 });

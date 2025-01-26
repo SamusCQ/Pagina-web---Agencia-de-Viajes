@@ -1,33 +1,35 @@
-<!-- Hecho por Gillermo Quilambaqui -->
+<!-- Hecho por Guillermo Quilambaqui -->
 <section>
-    <div class="historia">
+    <div class="historia" onmouseover="changeBackgroundColor(this, '#e0f7fa')" onmouseout="changeBackgroundColor(this, '#ffffff')" ondblclick="showAlert('Historia')">
         <h2>Nuestra Historia</h2>
-        <p>"Desde nuestros humildes comienzos en 2024, hemos crecido poco a poco con la misión de hacer que cada viaje de nuestros clientes sea una experiencia inolvidable.</p>
+        <button class="toggle-button" onclick="toggleContent('historia', this)">Ocultar</button>
+        <p id="historia" style="display: block;">Desde nuestros humildes comienzos en 2024, hemos crecido poco a poco con la misión de hacer que cada viaje de nuestros clientes sea una experiencia inolvidable.</p>
     </div>
-    <div class="mision">
+    <div class="mision" onmouseover="changeBackgroundColor(this, '#e0f7fa')" onmouseout="changeBackgroundColor(this, '#ffffff')" ondblclick="showAlert('Misión')">
         <h2>Nuestra Misión</h2>
-        <p>Comprometidos con la excelencia, nuestra misión es hacer que cada viaje sea seguro, emocionante y enriquecedor.</p>
+        <button class="toggle-button" onclick="toggleContent('mision', this)">Ocultar</button>
+        <p id="mision" style="display: block;">Comprometidos con la excelencia, nuestra misión es hacer que cada viaje sea seguro, emocionante y enriquecedor.</p>
     </div>
-    <div class="equipo">
+    <div class="equipo" onmouseover="changeBackgroundColor(this, '#e0f7fa')" onmouseout="changeBackgroundColor(this, '#ffffff')" ondblclick="showAlert('Equipo')">
         <h2>Nuestro Equipo</h2>
-        <p>Contamos con un equipo de profesionales dedicados y apasionados por los viajes, siempre listos para ayudarte a planificar tu próxima aventura.</p>
+        <button class="toggle-button" onclick="toggleContent('equipo', this)">Ocultar</button>
+        <p id="equipo" style="display: block;">Contamos con un equipo de profesionales dedicados y apasionados por los viajes, siempre listos para ayudarte a planificar tu próxima aventura.</p>
     </div>
-    <div class="valores">
+    <div class="valores" onmouseover="changeBackgroundColor(this, '#e0f7fa')" onmouseout="changeBackgroundColor(this, '#ffffff')" ondblclick="showAlert('Valores')">
         <h3>Valores</h3>
-        <ul>
+        <button class="toggle-button" onclick="toggleContent('valores', this)">Ocultar</button>
+        <ul id="valores" style="display: block;">
             <li>Compromiso con el Cliente</li>
             <li>Responsabilidad Social</li>
             <li>Honestidad</li>
             <li>Transparencia</li>
         </ul>
     </div>
-    <div class="testimonios">
+    <div class="testimonios" onmouseover="changeBackgroundColor(this, '#e0f7fa')" onmouseout="changeBackgroundColor(this, '#ffffff')" ondblclick="showAlert('Testimonios')">
         <h3>Testimonios</h3>
-        <blockquote>
-            "La mejor agencia de viajes con la que he trabajado. ¡Altamente recomendada!" - Miguel Nuñez
-        </blockquote>
-        <blockquote>
-            "Viajar con esta agencia fue una experiencia increíble. Todo estuvo perfectamente organizado y superó nuestras expectativas." - Cristian Zambrano
+        <blockquote id="testimonios" style="text-align: center;">
+            <p id="testimonio-texto"></p>
         </blockquote>
     </div>
 </section>
+

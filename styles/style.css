@@ -112,3 +112,75 @@ iframe {
   border-radius: 5px;
   border: 1px solid #ddd;
 }
+
+
+.toggle-button {
+  background-color: #005b9a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+/* Carrusel de imágenes */
+.image-slider {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.image-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Cambio de color */
+.service-item {
+  transition: background-color 0.3s ease;
+}
+
+/*Centrado de video*/
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0; 
+}
+
+.video h3 {
+  margin-bottom: 10px; 
+}
+/*Centrado testimonios*/
+#testimonios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}

@@ -74,3 +74,85 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+//ocultar contenido de cada seccion
+function toggleContent(id, button) {
+  var element = document.getElementById(id);
+  if (element.style.display === "none") {
+      element.style.display = "block";
+      button.textContent = "Ocultar";
+  } else {
+      element.style.display = "none";
+      button.textContent = "Mostrar";
+  }
+}
+
+//cambia el color de fondo de las secciones
+function changeBackgroundColor(element, color) {
+  element.style.backgroundColor = color;
+}
+// mensaje emergente doble clic
+function showAlert(section) {
+  alert("Has hecho doble clic en la sección: " + section);
+}
+
+
+
+// Clic cambia el texto del párrafo
+function changeText(element) {
+  element.textContent = "¡Gracias por visitarnos! Esperamos que encuentres el destino perfecto para tu próxima aventura.";
+}
+
+// Navegación de imágenes
+var images = ["Img/viaje.jpeg", "Img/viaje3.jpeg", "Img/viaje4.jpeg","Img/viaje2.jpeg"];
+var currentIndex = 0;
+
+function showImage(index) {
+    var imageElement = document.getElementById("slider-image");
+    imageElement.src = images[index];
+}
+
+function prevImage() {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    showImage(currentIndex);
+}
+
+function nextImage() {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    showImage(currentIndex);
+}
+
+// Cambio automático de imágenes
+setInterval(nextImage, 5000); // Cambia la imagen cada 5 segundos
+
+
+// Cambio de tonos de color
+function highlightService(element) {
+  const colors = ['#e0f7fa', '#b3e5fc', '#81d4fa', '#4fc3f7', '#29b6f6', '#03a9f4', '#039be5', '#0288d1'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  element.style.backgroundColor = randomColor;
+}
+
+function unhighlightService(element) {
+  element.style.backgroundColor = '';
+}
+
+//mostrar diferentes testimonios
+const testimonios = [
+  "La mejor agencia de viajes con la que he trabajado. ¡Altamente recomendada! - Miguel Nuñez",
+  "Viajar con esta agencia fue una experiencia increíble. Todo estuvo perfectamente organizado y superó nuestras expectativas. - Cristian Zambrano",
+  "¡Simplemente espectacular! Desde el primer contacto hasta el final del viaje, todo fue manejado de manera profesional y amigable. ¡Altamente recomendados!- Edu Peralta",
+  "El servicio al cliente fue excepcional. Nos ayudaron a encontrar el destino perfecto y se aseguraron de que todo estuviera organizado a la perfección. ¡Muy recomendados! - Kleber Vega "
+];
+
+let currentTestimonioIndex = 0;
+
+function mostrarTestimonio() {
+  const testimonioTexto = document.getElementById('testimonio-texto');
+  testimonioTexto.textContent = testimonios[currentTestimonioIndex];
+  currentTestimonioIndex = (currentTestimonioIndex + 1) % testimonios.length;
+}
+
+setInterval(mostrarTestimonio, 2000);
+
+mostrarTestimonio();

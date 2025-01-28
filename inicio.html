@@ -1,20 +1,24 @@
 <!-- Hecho por Hillary Manjarres-->
 <section>
     <h2>Explora el Mundo con Nosotros</h2>
-    <p>Ofrecemos los mejores destinos y paquetes de viaje para que disfrutes al máximo.</p>
-    <img src="Img/viaje.jpeg" alt="Imagen de viaje" width="600">
+    <p onclick="changeText(this)">Ofrecemos los mejores destinos y paquetes de viaje para que disfrutes al máximo.</p>
+    <div class="image-slider">
+        <img id="slider-image" src="Img/viaje.jpeg" alt="Imagen de viaje" width="600">
+        <button class="prev" onclick="prevImage()">&#10094;</button>
+        <button class="next" onclick="nextImage()">&#10095;</button>
+    </div>
     <div class="services">
         <h3>Nuestros Servicios</h3>
         <ul>
-            <li>Viajes todo incluido</li>
-            <li>Reservas de hoteles</li>
-            <li>Guías turísticas</li>
+            <li class="service-item" onmouseover="highlightService(this)" onmouseout="unhighlightService(this)">Viajes todo incluido</li>
+            <li class="service-item" onmouseover="highlightService(this)" onmouseout="unhighlightService(this)">Reservas de hoteles</li>
+            <li class="service-item" onmouseover="highlightService(this)" onmouseout="unhighlightService(this)">Guías turísticas</li>
         </ul>
     </div>
     <div class="video">
         <h3>Video Promocional</h3>
-        <video width="600" controls>
-            <source src="videoinicio.mp4" type="video/mp4">
+        <video id="promo-video" width="600" controls>
+            <source src="Video/videoinicio.mp4" type="video/mp4">
             Tu navegador no soporta la etiqueta de video.
         </video>
     </div>

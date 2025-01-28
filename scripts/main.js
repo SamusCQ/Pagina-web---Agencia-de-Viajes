@@ -107,9 +107,14 @@ function changeText(element) {
 var images = ["Img/viaje.jpeg", "Img/viaje3.jpeg", "Img/viaje4.jpeg","Img/viaje2.jpeg"];
 var currentIndex = 0;
 
+// Añadir clases al cambiar de imagen
 function showImage(index) {
-    var imageElement = document.getElementById("slider-image");
+  const imageElement = document.getElementById("slider-image");
+  imageElement.classList.remove("active");
+  setTimeout(() => {
     imageElement.src = images[index];
+    imageElement.classList.add("active");
+  }, 100);
 }
 
 function prevImage() {
@@ -145,11 +150,25 @@ const testimonios = [
   "El servicio al cliente fue excepcional. Nos ayudaron a encontrar el destino perfecto y se aseguraron de que todo estuviera organizado a la perfección. ¡Muy recomendados! - Kleber Vega "
 ];
 
+// Testimonios con efecto de escritura
+function escribirTestimonio(texto, elemento, velocidad = 50) {
+  let i = 0;
+  elemento.textContent = "";
+  const escribir = setInterval(() => {
+    if (i < texto.length) {
+      elemento.textContent += texto.charAt(i);
+      i++;
+    } else {
+      clearInterval(escribir);
+    }
+  }, velocidad);
+}
+
 let currentTestimonioIndex = 0;
 
 function mostrarTestimonio() {
-  const testimonioTexto = document.getElementById('testimonio-texto');
-  testimonioTexto.textContent = testimonios[currentTestimonioIndex];
+  const testimonioTexto = document.getElementById("testimonio-texto");
+  escribirTestimonio(testimonios[currentTestimonioIndex], testimonioTexto);
   currentTestimonioIndex = (currentTestimonioIndex + 1) % testimonios.length;
 }
 

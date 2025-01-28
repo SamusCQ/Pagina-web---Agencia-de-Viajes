@@ -113,6 +113,24 @@ iframe {
   border: 1px solid #ddd;
 }
 
+/* Efecto de transición en servicios */
+.services ul li {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.services ul li:hover {
+  transform: scale(1.05);
+}
+
+/* Desvanecimiento del carrusel */
+.image-slider img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image-slider img.active {
+  opacity: 1;
+}
 
 .toggle-button {
   background-color: #005b9a;
